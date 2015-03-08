@@ -48,9 +48,9 @@
 
 #define LUA_OPTRAM
 #ifdef LUA_OPTRAM
-#define LUA_OPTIMIZE_MEMORY			2
+#define LUA_OPTIMIZE_MEMORY	2
 #else
-#define LUA_OPTIMIZE_MEMORY         0
+#define LUA_OPTIMIZE_MEMORY	0
 #endif	/* LUA_OPTRAM */
 
 #define READLINE_INTERVAL	80
