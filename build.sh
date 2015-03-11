@@ -8,4 +8,4 @@ newsize=$((65 * 1024))
 filesize=$(stat -c "%s" bin/0x00000.bin)
 padcount=$((newsize - filesize))
 dd if=/dev/zero ibs=1 count="$padcount" | tr "\000" "\377" >> bin/0x00000.bin
-cat bin/0x00000 bin/0x10000.bin > prebuilt/firmware_latest.bin
+cat bin/0x00000.bin bin/0x10000.bin > prebuilt/firmware_latest.bin
