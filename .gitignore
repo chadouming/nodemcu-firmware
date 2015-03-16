@@ -1,2 +1,6 @@
 spiffy.bin
 build_priv.sh
+buildruby.sh
+prebuilt/firmware_preflashed.bin
+files/*
+build_priv/*
