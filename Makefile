@@ -18,11 +18,11 @@ ifeq ($(OS),Windows_NT)
 		CPP = xt-cpp
 		OBJCOPY = xt-objcopy
 		#MAKE = xt-make
-		CCFLAGS += -Os --rename-section .text=.irom0.text --rename-section .literal=.irom0.literal
+		CCFLAGS += -Ofast --rename-section .text=.irom0.text --rename-section .literal=.irom0.literal
 	else 
 		# It is gcc, may be cygwin
 		# Can we use -fdata-sections?
-		CCFLAGS += -Os -ffunction-sections -fno-jump-tables -fdata-sections
+		CCFLAGS += -Ofast -ffunction-sections -fno-jump-tables -fdata-sections
 		AR = xtensa-lx106-elf-ar
 		CC = xtensa-lx106-elf-gcc
 		NM = xtensa-lx106-elf-nm
@@ -49,7 +49,7 @@ else
 	else
 		ESPPORT = $(COMPORT)
 	endif
-	CCFLAGS += -Os -ffunction-sections -fno-jump-tables -fdata-sections
+	CCFLAGS += -Ofast -ffunction-sections -fno-jump-tables -fdata-sections
 	AR = xtensa-lx106-elf-ar
 	CC = xtensa-lx106-elf-gcc
 	NM = xtensa-lx106-elf-nm
@@ -105,7 +105,7 @@ OBINS := $(GEN_BINS:%=$(BINODIR)/%)
 
 CCFLAGS += 			\
 	-g			\
-	-O2			\
+	-Ofast			\
 	-Wpointer-arith		\
 	-Wundef			\
 	-Werror			\
