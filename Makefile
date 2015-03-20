@@ -49,10 +49,9 @@ else
 	else
 		ESPPORT = $(COMPORT)
 	endif
-	CCFLAGS += -Os -ffunction-sections -fno-jump-tables -fdata-sections -fmodulo-sched -fmodulo-sched-allow-regmoves -fgcse-las \
+	CCFLAGS += -Ofast -ffunction-sections -fno-jump-tables -fdata-sections -fmodulo-sched -fmodulo-sched-allow-regmoves -fgcse-las \
 		   -faggressive-loop-optimizations -funsafe-loop-optimizations -floop-nest-optimize -fgraphite-identity -fgcse-sm \
-		   -finline-functions -funswitch-loops -fpredictive-commoning -fgcse-after-reload -funroll-loops \
-		   -ftree-loop-distribute-patterns -ftree-slp-vectorize -fvect-cost-model -ftree-partial-pre -fipa-cp-clone
+		   -finline-functions -funswitch-loops -fpredictive-commoning -fgcse-after-reload
 	AR = xtensa-lx106-elf-ar
 	CC = xtensa-lx106-elf-gcc
 	NM = xtensa-lx106-elf-nm
@@ -115,7 +114,6 @@ CCFLAGS += 			\
 	-nostdlib       	\
 	-mlongcalls		\
 	-mtext-section-literals
-#	-Wall			
 
 CFLAGS = $(CCFLAGS) $(DEFINES) $(EXTRA_CCFLAGS) $(INCLUDES)
 DFLAGS = $(CCFLAGS) $(DDEFINES) $(EXTRA_CCFLAGS) $(INCLUDES)
