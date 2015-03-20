@@ -107,14 +107,13 @@ BINODIR := $(ODIR)/$(TARGET)/$(FLAVOR)/bin
 OBINS := $(GEN_BINS:%=$(BINODIR)/%)
 
 CCFLAGS += 			\
-	-flto			\
 	-Wpointer-arith		\
 	-Wundef			\
 	-Werror			\
 	-Wl,-EL			\
 	-fno-inline-functions	\
-	-nostdlib       \
-	-mlongcalls	\
+	-nostdlib       	\
+	-mlongcalls		\
 	-mtext-section-literals
 #	-Wall			
 
