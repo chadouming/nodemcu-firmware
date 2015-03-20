@@ -4,3 +4,4 @@ buildruby.sh
 prebuilt/firmware_preflashed.bin
 files/*
 build_priv/*
+spiffy
