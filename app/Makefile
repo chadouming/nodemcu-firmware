@@ -44,8 +44,6 @@ endif # } PDIR
 APPDIR = .
 LDDIR = ../ld
 
-CCFLAGS += -Ofast
-
 TARGET_LDFLAGS =		\
 	-nostdlib		\
 	-Wl,-EL \
