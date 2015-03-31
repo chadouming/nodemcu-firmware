@@ -104,8 +104,6 @@ BINODIR := $(ODIR)/$(TARGET)/$(FLAVOR)/bin
 OBINS := $(GEN_BINS:%=$(BINODIR)/%)
 
 CCFLAGS += 			\
-	-g			\
-	-O2			\
 	-Wpointer-arith		\
 	-Wundef			\
 	-Werror			\
@@ -114,7 +112,6 @@ CCFLAGS += 			\
 	-nostdlib       \
 	-mlongcalls	\
 	-mtext-section-literals
-#	-Wall			
 
 CFLAGS = $(CCFLAGS) $(DEFINES) $(EXTRA_CCFLAGS) $(INCLUDES)
 DFLAGS = $(CCFLAGS) $(DDEFINES) $(EXTRA_CCFLAGS) $(INCLUDES)
