@@ -1,0 +1,6 @@
+build_priv.sh
+build_priv/*
+buildruby.sh
+files/*
+spiffy
+spiffy.bin
