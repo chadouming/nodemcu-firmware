@@ -49,7 +49,10 @@ else
 	else
 		ESPPORT = $(COMPORT)
 	endif
-	CCFLAGS += -Ofast -ffunction-sections -fno-jump-tables -fdata-sections
+	CCFLAGS += -Os -ffunction-sections -fno-jump-tables -fdata-sections -ffast-math \
+		   -fgraphite-identity -finline-functions -funswitch-loops -fpredictive-commoning \
+		   -fgcse-after-reload -faggressive-loop-optimizations -fmodulo-sched \
+		   -fmodulo-sched-allow-regmoves -fgcse-las
 	AR = xtensa-lx106-elf-ar
 	CC = xtensa-lx106-elf-gcc
 	NM = xtensa-lx106-elf-nm
