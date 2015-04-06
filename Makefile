@@ -20,9 +20,6 @@ ifeq ($(OS),Windows_NT)
 		#MAKE = xt-make
 		CCFLAGS += -Ofast --rename-section .text=.irom0.text --rename-section .literal=.irom0.literal
 	else 
-		# It is gcc, may be cygwin
-		# Can we use -fdata-sections?
-		CCFLAGS += -Ofast -ffunction-sections -fno-jump-tables -fdata-sections
 		AR = xtensa-lx106-elf-ar
 		CC = xtensa-lx106-elf-gcc
 		NM = xtensa-lx106-elf-nm
@@ -49,9 +46,8 @@ else
 	else
 		ESPPORT = $(COMPORT)
 	endif
-	CCFLAGS += -Ofast -ffunction-sections -fno-jump-tables -fdata-sections -fmodulo-sched -fmodulo-sched-allow-regmoves -fgcse-las \
-		   -faggressive-loop-optimizations -funsafe-loop-optimizations -floop-nest-optimize -fgraphite-identity -fgcse-sm \
-		   -finline-functions -funswitch-loops -fpredictive-commoning -fgcse-after-reload
+	CCFLAGS += -Os -ffunction-sections -fno-jump-tables -fdata-sections -fmodulo-sched -fgcse-las \
+		   -finline-functions -floop-block -fpredictive-commoning
 	AR = xtensa-lx106-elf-ar
 	CC = xtensa-lx106-elf-gcc
 	NM = xtensa-lx106-elf-nm
@@ -110,7 +106,6 @@ CCFLAGS += 			\
 	-Wundef			\
 	-Werror			\
 	-Wl,-EL			\
-	-fno-inline-functions	\
 	-nostdlib       	\
 	-mlongcalls		\
 	-mtext-section-literals
